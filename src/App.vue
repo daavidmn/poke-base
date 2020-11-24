@@ -2,9 +2,12 @@
     <div id="app">
         <header class="header">
             <div id="header-items">
-                <div id="logo">LOGO</div>
+                <router-link to="/">
+                    <img id="logo" alt="Minimized PokeBase logo" src="@/assets/logo-min.png" />
+                </router-link>
+
                 <div id="nav">
-                    <router-link to="/">Home</router-link> |
+                    <router-link to="/">Home</router-link>
                     <router-link to="/about">About</router-link>
                 </div>
             </div>
@@ -31,18 +34,33 @@
     z-index: 2500;
     align-items: center;
 
+    #logo {
+        width: 30px;
+    }
+
     #header-items {
         padding: 0px 70px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         #nav {
+            width: 200px;
+            display: flex;
+            justify-content: space-around;
+
             a {
                 font-weight: bold;
-                color: #2c3e50;
+                color: #000;
+                text-decoration-line: none;
+
+                &:hover,
+                &:focus {
+                    color: #bb4343;
+                }
 
                 &.router-link-exact-active {
-                    color: #42b983;
+                    color: #000;
                 }
             }
         }

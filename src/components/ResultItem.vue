@@ -3,7 +3,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+    name: 'ResultItem'
+}
 </script>
 
 <style scoped lang="scss"></style>

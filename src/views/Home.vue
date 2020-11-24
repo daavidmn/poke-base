@@ -1,13 +1,15 @@
 <template>
     <div>
         <div class="banner">
-            <img alt="Vue logo" src="../assets/logo.png" />
-            <div>Seu database de pokemons</div>
+            <img id="logo" alt="PokeBase logo" src="@/assets/logo.png" />
+            <h1>Seu database pokemon!</h1>
         </div>
         <section class="search-box">
             <SearchBox />
         </section>
-        <ResultList msg="Welcome to Your Vue.js App" />
+        <section>
+            <ResultList />
+        </section>
     </div>
 </template>
 
@@ -36,6 +38,10 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    #logo {
+        width: 80%;
+    }
 }
 
 .search-box {
