@@ -3,9 +3,9 @@
         <h1>{{ msg }}</h1>
 
         <button @click="nextId">proximo id</button>
-        <button @click="showByType">Proximo tipo de pokemon</button>
+        <button @click="showByType">Próximo tipo de pokemon</button>
         <div>dados: {{ getpokedata.name }}</div>
-        <div v-for="(pokemons, index) in getpoketypelist.pokemon" :key="index">Pokemons do tipo {{ getpoketypelist.name }} : {{ pokemons.pokemon.name }}</div>
+        <!--<div v-for="(pokemons, index) in getpoketypelist.pokemon" :key="index">Pokemons do tipo {{ getpoketypelist.name }} : {{ pokemons.pokemon.name }}</div> -->
     </div>
 </template>
 
