@@ -22,7 +22,8 @@ export default {
     },
     methods: {
         searchInput() {
-            this.$store.dispatch('fetchPokemonById', this.inputText)
+            // this.$store.dispatch('fetchPokemonById', this.inputText)
+            this.$store.dispatch('fetchPokemonTypeList', this.inputText)
         }
     }
 }
@@ -30,19 +31,6 @@ export default {
 
 <style scoped lang="scss">
 $outline-width: 6px;
-$shadow-width: 4px;
-
-$button-background: #92cd41;
-$sec-button-background: #76c442;
-$shadow-color: #4aa52e;
-
-$alt-button-background: #f7d51d;
-$alt-sec-button-background: #f2c409;
-$alt-shadow-color: #e59400;
-
-$reset-button-background: #e76e55;
-$reset-sec-button-background: #ce372b;
-$reset-shadow-color: #8c2022;
 
 .container {
     margin-top: -100px;

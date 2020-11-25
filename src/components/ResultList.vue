@@ -1,9 +1,9 @@
 <template>
-    <div class="container">
-        <button @click="showByType">Próximo tipo de pokemon</button>
-        <div>dados: {{ getpokedata.name }}</div>
+    <div class="list-container">
         <!--<div v-for="(pokemons, index) in getpoketypelist.pokemon" :key="index">Pokemons do tipo {{ getpoketypelist.name }} : {{ pokemons.pokemon.name }}</div> -->
-        <ResultItem />
+        <div class="result-item-box" v-for="(pokemons, index) in getPokemonList" :key="index">
+            <ResultItem :key-id="index" :pokemon-image-src="pokemons.sprites.front_default" :pokemon-id="pokemons.id" :pokemon-name="pokemons.name" />
+        </div>
     </div>
 </template>
 
@@ -23,18 +23,15 @@ export default {
     },
     data() {
         return {
-            pokemonData: '',
-            valor: 1,
-            pokemonId: '1',
-            pokemonType: 1
+            pokemonData: 'teste'
         }
     },
-    beforeCreated() {},
-    mounted() {
-        this.$store.dispatch('fetchPokemonById', this.pokemonId)
-        this.$store.dispatch('fetchPokemonByType', this.pokemonType)
-    },
+    mounted() {},
     computed: {
+        getPokemonList() {
+            console.log(this.$store.state.pokemonList)
+            return this.$store.state.pokemonList
+        },
         getpokedata() {
             return this.$store.state.pokemonData
         },
@@ -44,10 +41,6 @@ export default {
     },
     methods: {
         showByType() {
-            this.pokemonType++
-            if (this.pokemonType >= 19) {
-                this.pokemonType = 1
-            }
             this.$store.dispatch('fetchPokemonByType', this.pokemonType)
         }
     }
@@ -55,4 +48,17 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style lang="scss" scoped>
+.list-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-item-box {
+    margin: 20px;
+}
+</style>

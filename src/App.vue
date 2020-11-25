@@ -13,6 +13,7 @@
             </div>
         </header>
         <router-view id="router-view" />
+        <footer class="footer">Developer: David Macedo</footer>
     </div>
 </template>
 
@@ -65,5 +66,15 @@
             }
         }
     }
+}
+
+.footer {
+    background-color: black;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
 }
 </style>
