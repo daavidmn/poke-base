@@ -1,4 +1,4 @@
-# poke-hub
+# poke-base
 
 ## Project setup
 
