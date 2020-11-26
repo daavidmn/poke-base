@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: local('Press Start 2P'), url(../fonts/PressStart2P-Regular.ttf) format('opentype');
+}
+
+@font-face {
+    font-family: 'VRC OSD Mono';
+    src: local('VRC OSD Mono'), url(../fonts/VCR_OSD_MONO_1.001.ttf) format('opentype');
+}
+
+$font-title: 'Press Start 2P', Times, serif;
+
+$font-default: 'VRC OSD Mono', Times, serif;

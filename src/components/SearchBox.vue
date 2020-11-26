@@ -1,14 +1,15 @@
 <template>
     <div class="container">
         <div class="search-options">
-            <div>Name/Id</div>
-            <div>Type</div>
-            <div>Ability</div>
+            <div @click="selectedOption(1)">Nome/Id</div>
+            <div @click="selectedOption(2)">Tipo</div>
+            <div @click="selectedOption(3)">Habilidade</div>
         </div>
         <div class="search-data">
             <input class="search-input" type="text" v-model="inputText" placeholder="Escreva um nome ou ID!" />
-            <button class="search-button" @click="searchInput">LUPA</button>
+            <button class="search-button" @click="searchInput(optionSelected)">LUPA</button>
         </div>
+        {{ optionSelected }}
     </div>
 </template>
 
@@ -17,13 +18,41 @@ export default {
     name: 'SearchBox',
     data() {
         return {
-            inputText: ''
+            inputText: '',
+            optionSelected: 1
         }
     },
     methods: {
-        searchInput() {
-            // this.$store.dispatch('fetchPokemonById', this.inputText)
-            this.$store.dispatch('fetchPokemonTypeList', this.inputText)
+        searchInput(value) {
+            switch (value) {
+                case 1:
+                    this.$store.dispatch('fetchPokemonIdOrNameList', this.inputText)
+                    break
+                case 2:
+                    this.$store.dispatch('fetchPokemonTypeList', this.inputText)
+                    break
+                case 3:
+                    this.$store.dispatch('fetchPokemonAbilityList', this.inputText)
+                    break
+                default:
+                    break
+            }
+        },
+        selectedOption(value) {
+            switch (value) {
+                case 1:
+                    this.optionSelected = 1
+                    break
+                case 2:
+                    this.optionSelected = 2
+                    break
+                case 3:
+                    this.optionSelected = 3
+                    break
+                default:
+                    this.optionSelected = 1
+                    break
+            }
         }
     }
 }
@@ -74,7 +103,7 @@ $outline-width: 6px;
         justify-content: space-around;
         align-items: center;
         z-index: 200;
-        font-size: 30px;
+        font-size: 2vw;
     }
 
     .search-data {
@@ -83,13 +112,14 @@ $outline-width: 6px;
         justify-content: space-around;
         align-items: center;
         z-index: 200;
+        font-size: 2vw;
 
         .search-input {
             padding: 2px 5px;
             border: 5px solid #000;
             height: 50px;
             width: 60%;
-            font-size: 30px;
+            font-size: 2vw;
         }
 
         .search-button {

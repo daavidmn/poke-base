@@ -28,7 +28,7 @@ export default {
 
 <style scoped lang="scss">
 .banner {
-    height: 100vh;
+    height: 80vh;
     max-height: 100%;
     padding: 0px 70px;
     // background-color: #5d81b5;
@@ -44,6 +44,7 @@ export default {
 
     h1 {
         color: white;
+        font-size: 2vw;
     }
 }
 

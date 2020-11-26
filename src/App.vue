@@ -18,6 +18,9 @@
 </template>
 
 <style lang="scss">
+$font-title: 'Press Start 2P', Times, serif;
+$font-default: 'VRC OSD Mono', Times, serif;
+
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -26,6 +29,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    font-family: 'VRC OSD Mono', Times, serif;
 }
 
 .header {

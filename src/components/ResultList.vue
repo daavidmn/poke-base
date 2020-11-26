@@ -29,32 +29,23 @@ export default {
     mounted() {},
     computed: {
         getPokemonList() {
-            console.log(this.$store.state.pokemonList)
-            return this.$store.state.pokemonList
-        },
-        getpokedata() {
-            return this.$store.state.pokemonData
-        },
-        getpoketypelist() {
-            return this.$store.state.pokemonTypeList
+            console.log(this.$store.getters.getPokemonList)
+            return this.$store.getters.getPokemonList
         }
     },
-    methods: {
-        showByType() {
-            this.$store.dispatch('fetchPokemonByType', this.pokemonType)
-        }
-    }
+    methods: {}
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .list-container {
+    min-height: 500px;
+    margin-top: 50px;
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
 }
 

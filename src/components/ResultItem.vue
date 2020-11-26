@@ -78,6 +78,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    // font-family: 'Press Start 2P', Times, serif;
+    font-family: 'VRC OSD Mono', Times, serif;
 
     .text-info {
         z-index: 600;

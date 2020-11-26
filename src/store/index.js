@@ -41,13 +41,6 @@ export default new Vuex.Store({
             } catch (error) {
                 console.error(error)
             }
-            // await axios
-            //     .get('https://pokeapi.co/api/v2/' + 'pokemon/1')
-            //     .then(response => context.commit('SET_POKEID', response.data))
-            //     .catch(error => console.log(error))
-
-            // const response = await axios.get('https://pokeapi.co/api/v2/' + 'pokemon/1')
-            // context.commit('SET_POKEID', response.data)
         },
         async fetchPokemonByType(context, value) {
             try {
@@ -113,10 +106,6 @@ export default new Vuex.Store({
         }
     },
     getters: {
-        // getIdNameData: state => {
-        //     return state.pokemonIdNameData
-        // },
-        // getTypeData: state => {},
         getPokemonList: state => {
             return state.pokemonList
         }
