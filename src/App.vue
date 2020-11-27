@@ -56,7 +56,7 @@ $font-default: 'VRC OSD Mono', Times, serif;
 
             a {
                 font-weight: bold;
-                color: #000;
+                color: white;
                 text-decoration-line: none;
 
                 &:hover,
@@ -65,7 +65,7 @@ $font-default: 'VRC OSD Mono', Times, serif;
                 }
 
                 &.router-link-exact-active {
-                    color: #000;
+                    color: white;
                 }
             }
         }

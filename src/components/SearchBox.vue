@@ -1,15 +1,23 @@
 <template>
     <div class="container">
         <div class="search-options">
-            <div @click="selectedOption(1)">Nome/Id</div>
-            <div @click="selectedOption(2)">Tipo</div>
-            <div @click="selectedOption(3)">Habilidade</div>
+            <div class="search-item" @mouseover="hoverItem = 'name'">
+                <img v-show="hoverItem === 'name'" :src="mySVG" class="item-selector" />
+                <div class="text-selector">Nome/Id</div>
+            </div>
+            <div class="search-item" @mouseover="hoverItem = 'type'">
+                <img v-show="hoverItem === 'type'" :src="mySVG" class="item-selector" />
+                <div class="text-selector">Tipo</div>
+            </div>
+            <div class="search-item" @mouseover="hoverItem = 'ability'">
+                <img v-show="hoverItem === 'ability'" :src="mySVG" class="item-selector" />
+                <div class="text-selector">Habilidade</div>
+            </div>
         </div>
         <div class="search-data">
-            <input class="search-input" type="text" v-model="inputText" placeholder="Escreva um nome ou ID!" />
-            <button class="search-button" @click="searchInput(optionSelected)">LUPA</button>
+            <input class="search-input" type="text" v-model="inputText" placeholder="Escreva um nome ou ID!" @keyup.enter="searchInput(hoverItem)" />
+            <button class="search-button" type="submit" @click="searchInput(hoverItem)">LUPA</button>
         </div>
-        {{ optionSelected }}
     </div>
 </template>
 
@@ -19,38 +27,24 @@ export default {
     data() {
         return {
             inputText: '',
-            optionSelected: 1
+            hoverItem: 'name',
+            hover: true,
+            mySVG: require('@/assets/selector.svg')
         }
     },
     methods: {
         searchInput(value) {
             switch (value) {
-                case 1:
+                case 'name':
                     this.$store.dispatch('fetchPokemonIdOrNameList', this.inputText)
                     break
-                case 2:
+                case 'type':
                     this.$store.dispatch('fetchPokemonTypeList', this.inputText)
                     break
-                case 3:
+                case 'ability':
                     this.$store.dispatch('fetchPokemonAbilityList', this.inputText)
                     break
                 default:
-                    break
-            }
-        },
-        selectedOption(value) {
-            switch (value) {
-                case 1:
-                    this.optionSelected = 1
-                    break
-                case 2:
-                    this.optionSelected = 2
-                    break
-                case 3:
-                    this.optionSelected = 3
-                    break
-                default:
-                    this.optionSelected = 1
                     break
             }
         }
@@ -103,7 +97,25 @@ $outline-width: 6px;
         justify-content: space-around;
         align-items: center;
         z-index: 200;
-        font-size: 2vw;
+        font-size: 2.5vw;
+
+        .search-item {
+            width: 30%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+
+            .item-selector {
+                width: 10%;
+                margin-right: 5%;
+            }
+
+            .text-selector {
+            }
+        }
     }
 
     .search-data {

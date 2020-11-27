@@ -1,8 +1,8 @@
 <template>
     <div class="list-container">
         <!--<div v-for="(pokemons, index) in getpoketypelist.pokemon" :key="index">Pokemons do tipo {{ getpoketypelist.name }} : {{ pokemons.pokemon.name }}</div> -->
-        <div class="result-item-box" v-for="(pokemons, index) in getPokemonList" :key="index">
-            <ResultItem :key-id="index" :pokemon-image-src="pokemons.sprites.front_default" :pokemon-id="pokemons.id" :pokemon-name="pokemons.name" />
+        <div class="result-item-box" v-for="(pokemon, index) in getPokemonList" :key="index">
+            <ResultItem :pokemon-image-src="pokemon.sprites.front_default" :pokemon-id="pokemon.id" :pokemon-name="pokemon.name" />
         </div>
     </div>
 </template>
@@ -15,12 +15,7 @@ export default {
     components: {
         ResultItem
     },
-    props: {
-        msg: {
-            type: String,
-            default: ''
-        }
-    },
+
     data() {
         return {
             pokemonData: 'teste'
@@ -29,8 +24,12 @@ export default {
     mounted() {},
     computed: {
         getPokemonList() {
-            console.log(this.$store.getters.getPokemonList)
-            return this.$store.getters.getPokemonList
+            return this.$store.getters.getPokemonFinalList
+        }
+    },
+    watch: {
+        getPokemonData(newData, oldData) {
+            this.pokemonData = newData
         }
     },
     methods: {}

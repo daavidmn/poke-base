@@ -1,10 +1,11 @@
 <template>
     <div class="item-container">
         <div class="content">
-            <img class="pokemon-default-sprite" :id="'sprite' + keyId" alt="PokeBase logo" :src="pokemonImageSrc" />
+            <img v-if="pokemonImageSrc != ''" class="pokemon-default-sprite" :alt="`${pokemonName} sprite`" :src="pokemonImageSrc" />
             <div class="text-info">
                 <div>Número: {{ pokemonId }}</div>
                 <div>Nome: {{ pokemonName }}</div>
+                <div>Link: <router-link :to="`/details/${pokemonId}`">Detalhes</router-link></div>
             </div>
         </div>
     </div>
@@ -14,10 +15,6 @@
 export default {
     name: 'ResultItem',
     props: {
-        keyId: {
-            type: Number,
-            default: 0
-        },
         pokemonImageSrc: {
             type: String,
             default: ''
