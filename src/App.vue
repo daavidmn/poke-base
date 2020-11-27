@@ -33,8 +33,8 @@ $font-default: 'VRC OSD Mono', Times, serif;
 }
 
 .header {
-    position: fixed;
-    top: 60px;
+    padding: 30px 0;
+    background-color: #5d81b5;
     width: 100%;
     z-index: 2500;
     align-items: center;
@@ -73,7 +73,7 @@ $font-default: 'VRC OSD Mono', Times, serif;
 }
 
 .footer {
-    background-color: black;
+    background-color: #5d81b5;
     width: 100%;
     height: 30px;
     display: flex;

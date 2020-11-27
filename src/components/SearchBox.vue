@@ -15,8 +15,8 @@
             </div>
         </div>
         <div class="search-data">
-            <input class="search-input" type="text" v-model="inputText" placeholder="Escreva um nome ou ID!" @keyup.enter="searchInput(hoverItem)" />
-            <button class="search-button" type="submit" @click="searchInput(hoverItem)">LUPA</button>
+            <input class="search-input" type="text" v-model="inputText" placeholder="Faça a sua pesquisa!" @keyup.enter="searchInput(hoverItem)" />
+            <button class="search-button" @click="searchInput(hoverItem)">LUPA</button>
         </div>
     </div>
 </template>
@@ -34,18 +34,20 @@ export default {
     },
     methods: {
         searchInput(value) {
-            switch (value) {
-                case 'name':
-                    this.$store.dispatch('fetchPokemonIdOrNameList', this.inputText)
-                    break
-                case 'type':
-                    this.$store.dispatch('fetchPokemonTypeList', this.inputText)
-                    break
-                case 'ability':
-                    this.$store.dispatch('fetchPokemonAbilityList', this.inputText)
-                    break
-                default:
-                    break
+            if (this.inputText !== '') {
+                switch (value) {
+                    case 'name':
+                        this.$store.dispatch('fetchPokemonIdOrNameList', this.inputText)
+                        break
+                    case 'type':
+                        this.$store.dispatch('fetchPokemonTypeList', this.inputText)
+                        break
+                    case 'ability':
+                        this.$store.dispatch('fetchPokemonAbilityList', this.inputText)
+                        break
+                    default:
+                        break
+                }
             }
         }
     }
@@ -112,9 +114,12 @@ $outline-width: 6px;
                 width: 10%;
                 margin-right: 5%;
             }
+        }
+    }
 
-            .text-selector {
-            }
+    @media only screen and (max-width: 750px) {
+        .search-options {
+            font-size: 15px;
         }
     }
 
@@ -131,7 +136,6 @@ $outline-width: 6px;
             border: 5px solid #000;
             height: 50px;
             width: 60%;
-            font-size: 2vw;
         }
 
         .search-button {
@@ -139,6 +143,13 @@ $outline-width: 6px;
             border: 5px solid #000;
             height: 50px;
             width: 10%;
+            cursor: pointer;
+        }
+    }
+
+    @media only screen and (max-width: 750px) {
+        .search-data {
+            font-size: 15px;
         }
     }
 }

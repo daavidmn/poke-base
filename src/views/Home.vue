@@ -1,15 +1,15 @@
 <template>
-    <div>
+    <div class="home-container">
         <div class="banner">
             <img id="logo" alt="PokeBase logo" src="@/assets/logo.png" />
             <h1>O seu database Pokémon!</h1>
         </div>
-        <section class="search-box">
+        <div class="search-box">
             <SearchBox />
-        </section>
-        <section class="result-list">
+        </div>
+        <div class="result-list">
             <ResultList />
-        </section>
+        </div>
     </div>
 </template>
 
@@ -27,34 +27,46 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.banner {
-    height: 60vh;
-    max-height: 100%;
-    padding: 0px 70px;
-    // background-color: #5d81b5;
-    background-color: #5d81b5;
+.home-container {
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    .banner {
+        height: 50vh;
+        max-height: 100%;
+        padding: 0px 70px 10vh;
 
-    #logo {
-        width: 80%;
+        // background-color: #5d81b5;
+        background-color: #5d81b5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        #logo {
+            width: 90%;
+        }
+
+        @media only screen and (min-width: 750px) {
+            #logo {
+                width: 70%;
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: 1.8vw;
+        }
     }
 
-    h1 {
-        color: white;
-        font-size: 2vw;
+    .search-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-}
 
-.search-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.result-list {
-    padding: 0px 70px;
+    .result-list {
+        padding: 0px 70px;
+    }
 }
 </style>

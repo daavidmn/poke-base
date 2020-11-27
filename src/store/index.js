@@ -101,7 +101,6 @@ export default new Vuex.Store({
                 })
                 await Promise.all(promises)
 
-                console.log(context.state.pokemonList)
                 context.commit('SET_FINAL_LIST', context.state.pokemonList)
             } catch (error) {
                 console.error(error)
@@ -127,7 +126,6 @@ export default new Vuex.Store({
                 })
                 await Promise.all(promises)
 
-                console.log(context.state.pokemonList)
                 context.commit('SET_FINAL_LIST', context.state.pokemonList)
             } catch (error) {
                 console.error(error)

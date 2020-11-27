@@ -3,9 +3,9 @@
         <div class="content">
             <img v-if="pokemonImageSrc != ''" class="pokemon-default-sprite" :alt="`${pokemonName} sprite`" :src="pokemonImageSrc" />
             <div class="text-info">
-                <div>Número: {{ pokemonId }}</div>
+                <div>Id: {{ pokemonId }}</div>
                 <div>Nome: {{ pokemonName }}</div>
-                <div>Link: <router-link :to="`/details/${pokemonId}`">Detalhes</router-link></div>
+                <router-link :to="`/details/${pokemonId}`">Detalhes</router-link>
             </div>
         </div>
     </div>
@@ -33,13 +33,10 @@ export default {
 
 <style lang="scss" scoped>
 .item-container {
-    background-color: white;
-    width: 260px;
+    width: 300px;
     height: 115px;
-    max-width: 400px;
-    max-height: 200px;
-
     margin: 10px;
+    background-color: white;
 
     $outline-width: 6px;
     position: relative;
@@ -71,17 +68,16 @@ export default {
 }
 
 .content {
-    z-index: 600;
     display: flex;
     justify-content: center;
     align-items: center;
-    // font-family: 'Press Start 2P', Times, serif;
-    font-family: 'VRC OSD Mono', Times, serif;
 
     .text-info {
         z-index: 600;
         display: flex;
         flex-direction: column;
+        font-size: 18px;
+        font-family: 'VRC OSD Mono', Times, serif;
     }
 }
 </style>
