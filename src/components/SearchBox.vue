@@ -3,34 +3,40 @@
         <div class="search-options">
             <div class="search-item" @mouseover="hoverItem = 'name'">
                 <img v-show="hoverItem === 'name'" :src="mySVG" class="item-selector" />
-                <div class="text-selector">Nome/Id</div>
+                <div class="text-selector">{{ fixedText.nameIdLabel }}</div>
             </div>
             <div class="search-item" @mouseover="hoverItem = 'type'">
                 <img v-show="hoverItem === 'type'" :src="mySVG" class="item-selector" />
-                <div class="text-selector">Tipo</div>
+                <div class="text-selector">{{ fixedText.typeLabel }}</div>
             </div>
             <div class="search-item" @mouseover="hoverItem = 'ability'">
                 <img v-show="hoverItem === 'ability'" :src="mySVG" class="item-selector" />
-                <div class="text-selector">Habilidade</div>
+                <div class="text-selector">{{ fixedText.abilityLabel }}</div>
             </div>
         </div>
         <div class="search-data">
-            <input class="search-input" type="text" v-model="inputText" placeholder="Faça a sua pesquisa!" @keyup.enter="searchInput(hoverItem)" />
+            <input class="search-input" type="text" v-model="inputText" :placeholder="fixedText.inputPlaceholderText" @keyup.enter="searchInput(hoverItem)" />
             <button class="search-button" @click="searchInput(hoverItem)">LUPA</button>
         </div>
     </div>
 </template>
 
 <script>
+import { searchBoxText } from '@/consts/fixedText'
+
 export default {
     name: 'SearchBox',
     data() {
         return {
+            fixedText: {},
             inputText: '',
             hoverItem: 'name',
             hover: true,
             mySVG: require('@/assets/selector.svg')
         }
+    },
+    created() {
+        this.fixedText = searchBoxText
     },
     methods: {
         searchInput(value) {

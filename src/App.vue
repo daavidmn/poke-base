@@ -7,15 +7,30 @@
                 </router-link>
 
                 <div id="nav">
-                    <router-link to="/">Home</router-link>
-                    <router-link to="/about">About</router-link>
+                    <router-link to="/">{{ fixedText.headerHomeLabel }}</router-link>
+                    <router-link to="/about">{{ fixedText.headerAboutLabel }}</router-link>
                 </div>
             </div>
         </header>
         <router-view id="router-view" />
-        <footer class="footer">Developer: David Macedo</footer>
+        <footer class="footer">{{ fixedText.footerLabel }}</footer>
     </div>
 </template>
+
+<script>
+import { appText } from '@/consts/fixedText'
+
+export default {
+    data() {
+        return {
+            fixedText: {}
+        }
+    },
+    created() {
+        this.fixedText = appText
+    }
+}
+</script>
 
 <style lang="scss">
 $font-title: 'Press Start 2P', Times, serif;

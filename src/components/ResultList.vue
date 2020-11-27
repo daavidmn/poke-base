@@ -9,7 +9,7 @@
             <nav aria-label="Page navigation">
                 <ul class="page-list">
                     <li class="page-item">
-                        <button type="button" class="page-link" v-if="page != 1" @click="page--">Anterior</button>
+                        <button type="button" class="page-link" v-if="page != 1" @click="page--">{{ fixedText.paginationPreviousText }}</button>
                     </li>
                     <li class="page-item">
                         <button
@@ -24,7 +24,7 @@
                         </button>
                     </li>
                     <li class="page-item">
-                        <button type="button" @click="page++" v-if="page < pages.length" class="page-link">Próximo</button>
+                        <button type="button" @click="page++" v-if="page < pages.length" class="page-link">{{ fixedText.paginationNextText }}</button>
                     </li>
                 </ul>
             </nav>
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { resultListText } from '@/consts/fixedText'
 import ResultItem from '@/components/ResultItem.vue'
 
 export default {
@@ -40,14 +41,17 @@ export default {
     components: {
         ResultItem
     },
-
     data() {
         return {
+            fixedText: {},
             pokemonList: '',
             page: 1,
             perPage: 12,
             pages: []
         }
+    },
+    created() {
+        this.fixedText = resultListText
     },
     mounted() {},
     computed: {

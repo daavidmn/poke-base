@@ -2,7 +2,7 @@
     <div class="home-container">
         <div class="banner">
             <img id="logo" alt="PokeBase logo" src="@/assets/logo.png" />
-            <h1>O seu database Pokémon!</h1>
+            <h1>{{ fixedText.logoLabel }}</h1>
         </div>
         <div class="search-box">
             <SearchBox />
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { homeText } from '@/consts/fixedText'
 import SearchBox from '@/components/SearchBox.vue'
 import ResultList from '@/components/ResultList.vue'
 
@@ -22,6 +23,14 @@ export default {
     components: {
         SearchBox,
         ResultList
+    },
+    data() {
+        return {
+            fixedText: {}
+        }
+    },
+    created() {
+        this.fixedText = homeText
     }
 }
 </script>

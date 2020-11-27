@@ -3,15 +3,17 @@
         <div class="content">
             <img v-if="pokemonImageSrc != ''" class="pokemon-default-sprite" :alt="`${pokemonName} sprite`" :src="pokemonImageSrc" />
             <div class="text-info">
-                <div>Id: {{ pokemonId }}</div>
-                <div>Nome: {{ pokemonName }}</div>
-                <router-link :to="`/details/${pokemonId}`">Detalhes</router-link>
+                <div>{{ fixedText.idLabel }} {{ pokemonId }}</div>
+                <div>{{ fixedText.nameLabel }} {{ pokemonName }}</div>
+                <router-link :to="`/details/${pokemonId}`">{{ fixedText.detailsLabel }}</router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { resultItemText } from '@/consts/fixedText'
+
 export default {
     name: 'ResultItem',
     props: {
@@ -27,6 +29,14 @@ export default {
             type: String,
             default: ''
         }
+    },
+    data() {
+        return {
+            fixedText: {}
+        }
+    },
+    created() {
+        this.fixedText = resultItemText
     }
 }
 </script>

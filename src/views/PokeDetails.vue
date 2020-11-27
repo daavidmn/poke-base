@@ -8,7 +8,7 @@
                     <tbody>
                         <tr>
                             <th>
-                                ID:
+                                {{ fixedText.idLabel }}
                             </th>
                             <td>
                                 {{ getPokemonData.id }}
@@ -16,7 +16,7 @@
                         </tr>
                         <tr>
                             <th>
-                                NOME:
+                                {{ fixedText.nameLabel }}
                             </th>
                             <td>
                                 {{ getPokemonData.name }}
@@ -24,7 +24,7 @@
                         </tr>
                         <tr>
                             <th>
-                                STATS:
+                                {{ fixedText.statsLabel }}
                             </th>
                             <td>
                                 <div v-for="(stat, index) in getPokemonData.stats" :key="index">
@@ -34,7 +34,7 @@
                         </tr>
                         <tr>
                             <th>
-                                TIPOS:
+                                {{ fixedText.typesLabel }}
                             </th>
                             <td>
                                 <div v-for="(type, index) in getPokemonData.types" :key="index">
@@ -45,7 +45,7 @@
 
                         <tr>
                             <th>
-                                HABILIDADES:
+                                {{ fixedText.abilitiesLabel }}
                             </th>
                             <td>
                                 <div v-for="(ability, index) in getPokemonData.abilities" :key="index">
@@ -56,7 +56,7 @@
 
                         <tr>
                             <th>
-                                GOLPES:
+                                {{ fixedText.movesLabel }}
                             </th>
                             <td>
                                 <div class="moves-list">
@@ -71,7 +71,7 @@
 
                 <div class="sprite-box">
                     <div>
-                        SPRITES:
+                        {{ fixedText.spritesLabel }}
                     </div>
                     <div class="sprite-list">
                         <div class="small-sprite" v-for="(sprite, index) in dataSprites" :key="index">
@@ -81,11 +81,15 @@
                 </div>
             </div>
         </div>
-        <router-link id="link-home" :to="'/'"><h2>Voltar</h2></router-link>
+        <router-link id="link-home" :to="'/'"
+            ><h2>{{ fixedText.backButton }}</h2></router-link
+        >
     </div>
 </template>
 
 <script>
+import { pokeDetailsText } from '@/consts/fixedText'
+
 export default {
     props: {
         id: {
@@ -95,10 +99,12 @@ export default {
     },
     data() {
         return {
+            fixedText: {},
             dataSprites: ''
         }
     },
     created() {
+        this.fixedText = pokeDetailsText
         this.$store.dispatch('fetchPokemonByIdOrName', this.id)
     },
     computed: {
