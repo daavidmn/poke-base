@@ -1,7 +1,7 @@
 <template>
     <div class="details-container">
-        <h1>{{ getPokemonData.name }}</h1>
         <div class="details-box">
+            <h1>{{ getPokemonData.name }}</h1>
             <div class="details-content">
                 <img class="big-sprite" :alt="`${getPokemonData.name} sprite`" :src="getOfficialSprite().front_default" />
                 <table>
@@ -137,15 +137,15 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-
-    h1 {
-        font-size: 3em;
-    }
+    background-color: #cbd8eb;
 
     .details-box {
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
         width: 80vw;
+        background-color: white;
 
         position: relative;
         padding: 20px;
@@ -174,6 +174,7 @@ export default {
             border-left: $outline-width black solid;
             border-right: $outline-width black solid;
         }
+
         .details-content {
             display: flex;
             flex-wrap: wrap;
@@ -181,9 +182,12 @@ export default {
             justify-content: center;
             z-index: 200;
 
+            h1 {
+                font-size: 3em;
+            }
+
             .big-sprite {
                 margin: 30px;
-
                 display: block;
                 max-width: 75vw;
                 max-height: 300px;
@@ -196,7 +200,6 @@ export default {
                 width: 80%;
                 flex-direction: column;
                 justify-content: flex-start;
-                border: 0px 1px solid black;
                 border-collapse: collapse;
 
                 tr {
@@ -206,14 +209,15 @@ export default {
                     th,
                     td {
                         padding: 4px 0px;
-                        border-width: 1px 0;
+                        border-width: 5px 0;
                         border-style: solid;
-                        border-color: #5d81b5;
+                        border-color: black;
                     }
 
                     th {
                         padding: 8px;
                         background-color: rgb(238, 238, 238);
+                        font-weight: 100;
                     }
 
                     td {

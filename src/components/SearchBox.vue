@@ -16,7 +16,9 @@
         </div>
         <div class="search-data">
             <input class="search-input" type="text" v-model="inputText" :placeholder="fixedText.inputPlaceholderText" @keyup.enter="searchInput(hoverItem)" />
-            <button class="search-button" @click="searchInput(hoverItem)">LUPA</button>
+            <button class="search-button" @click="searchInput(hoverItem)">
+                <font-awesome-icon icon="search" />
+            </button>
         </div>
     </div>
 </template>
@@ -106,6 +108,8 @@ $outline-width: 6px;
         align-items: center;
         z-index: 200;
         font-size: 2.5vw;
+        border-bottom: 3px solid rgb(196, 196, 196);
+        padding-bottom: 10px;
 
         .search-item {
             width: 30%;
@@ -147,9 +151,11 @@ $outline-width: 6px;
         .search-button {
             padding: 0px;
             border: 5px solid #000;
-            height: 50px;
+            height: 65px;
             width: 10%;
             cursor: pointer;
+            background-color: #5d81b5;
+            color: black;
         }
     }
 

@@ -129,6 +129,7 @@ export default {
                 }
                 .active {
                     background-color: #5d81b5;
+                    color: white;
                     border: 3px solid #000;
                 }
             }
