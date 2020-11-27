@@ -1,7 +1,7 @@
 <template>
     <div class="item-container">
         <div class="content">
-            <img v-if="pokemonImageSrc != ''" class="pokemon-default-sprite" :alt="`${pokemonName} sprite`" :src="pokemonImageSrc" />
+            <img v-if="pokemonImageSrc != ''" class="pokemon-default-sprite" :alt="`${pokemonName} sprite`" :src="getImageSrc(pokemonImageSrc)" />
             <div class="text-info">
                 <div>{{ fixedText.idLabel }} {{ pokemonId }}</div>
                 <div>{{ fixedText.nameLabel }} {{ pokemonName }}</div>
@@ -13,6 +13,7 @@
 
 <script>
 import { resultItemText } from '@/consts/fixedText'
+import spriteMissing from '@/assets/sprite-missing.png'
 
 export default {
     name: 'ResultItem',
@@ -37,6 +38,11 @@ export default {
     },
     created() {
         this.fixedText = resultItemText
+    },
+    methods: {
+        getImageSrc(src) {
+            return src === null ? spriteMissing : src
+        }
     }
 }
 </script>
@@ -47,6 +53,9 @@ export default {
     height: 115px;
     margin: 10px;
     background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
     $outline-width: 6px;
     position: relative;
@@ -79,11 +88,18 @@ export default {
 
 .content {
     display: flex;
-    justify-content: center;
     align-items: center;
+    z-index: 600;
+
+    .pokemon-default-sprite {
+        padding-right: 10px;
+        margin: 10px;
+        border-right: 1px solid black;
+    }
 
     .text-info {
-        z-index: 600;
+        margin: 10px;
+
         display: flex;
         flex-direction: column;
         font-size: 18px;

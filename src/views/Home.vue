@@ -1,7 +1,7 @@
 <template>
     <div class="home-container">
         <div class="banner">
-            <img id="logo" alt="PokeBase logo" src="@/assets/logo.png" />
+            <img id="logo" alt="PokeBase logo" :src="getLogoImage()" />
             <h1>{{ fixedText.logoLabel }}</h1>
         </div>
         <div class="search-box">
@@ -15,6 +15,7 @@
 
 <script>
 import { homeText } from '@/consts/fixedText'
+import logo from '@/assets/logo.png'
 import SearchBox from '@/components/SearchBox.vue'
 import ResultList from '@/components/ResultList.vue'
 
@@ -31,6 +32,11 @@ export default {
     },
     created() {
         this.fixedText = homeText
+    },
+    methods: {
+        getLogoImage() {
+            return logo
+        }
     }
 }
 </script>

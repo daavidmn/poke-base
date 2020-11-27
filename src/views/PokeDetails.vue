@@ -81,9 +81,9 @@
                 </div>
             </div>
         </div>
-        <router-link id="link-home" :to="'/'"
-            ><h2>{{ fixedText.backButton }}</h2></router-link
-        >
+        <router-link id="link-home" :to="'/'">
+            <h2>{{ fixedText.backButton }}</h2>
+        </router-link>
     </div>
 </template>
 

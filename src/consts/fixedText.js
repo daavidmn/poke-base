@@ -1,6 +1,6 @@
 export const appText = { headerHomeLabel: 'Início', headerAboutLabel: 'Sobre', footerLabel: 'Desenvolvido por David Macedo' }
 
-export const homeText = { logoLabel: 'O seu database Pokémonnn!' }
+export const homeText = { logoLabel: 'O seu database Pokémon!' }
 
 export const pokeDetailsText = {
     idLabel: 'Id:',

@@ -3,7 +3,7 @@
         <header class="header">
             <div id="header-items">
                 <router-link to="/">
-                    <img id="logo" alt="Minimized PokeBase logo" src="@/assets/logo-min.png" />
+                    <img id="logo" alt="Minimized PokeBase logo" :src="getLogoImage()" />
                 </router-link>
 
                 <div id="nav">
@@ -19,6 +19,7 @@
 
 <script>
 import { appText } from '@/consts/fixedText'
+import logoMin from '@/assets/logo-min.png'
 
 export default {
     data() {
@@ -28,6 +29,11 @@ export default {
     },
     created() {
         this.fixedText = appText
+    },
+    methods: {
+        getLogoImage() {
+            return logoMin
+        }
     }
 }
 </script>
