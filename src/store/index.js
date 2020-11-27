@@ -44,22 +44,6 @@ export default new Vuex.Store({
                 console.error(error)
             }
         },
-        async fetchPokemonByType(context, value) {
-            try {
-                const response = await PokeApiService.getPokemonByType(value)
-                context.commit('SET_TYPE_DATA', response)
-            } catch (error) {
-                console.error(error)
-            }
-        },
-        async fetchPokemonByAbility(context, value) {
-            try {
-                const response = await PokeApiService.getPokemonByAbility(value)
-                context.commit('SET_ABILITY_DATA', response)
-            } catch (error) {
-                console.error(error)
-            }
-        },
 
         async fetchPokemonIdOrNameList(context, value) {
             try {
@@ -82,18 +66,6 @@ export default new Vuex.Store({
 
                 context.commit('CLEAR_POKEMON_LIST')
 
-                // for (const [index, element] of this.state.pokemonTypeData.pokemon.entries()) {
-                //     const response = await PokeApiService.getPokemonByIdOrName(element.pokemon.name)
-                //     const pokemonData = { response, index }
-                //     context.commit('SET_LIST', pokemonData)
-                // }
-
-                // this.state.pokemonTypeData.pokemon.forEach(async (element, index) => {
-                //     const response = await PokeApiService.getPokemonByIdOrName(element.pokemon.name)
-                //     const pokemonData = { response, index }
-                //     context.commit('SET_LIST', pokemonData)
-                // })
-
                 const promises = this.state.pokemonTypeData.pokemon.map(async (element, index) => {
                     const response = await PokeApiService.getPokemonByIdOrName(element.pokemon.name)
                     const pokemonData = { response, index }
@@ -113,12 +85,6 @@ export default new Vuex.Store({
 
                 context.commit('CLEAR_POKEMON_LIST')
 
-                // for (const [index, element] of this.state.pokemonAbilityData.pokemon.entries()) {
-                //     const response = await PokeApiService.getPokemonByIdOrName(element.pokemon.name)
-                //     const pokemonData = { response, index }
-                //     context.commit('SET_LIST', pokemonData)
-                // }
-
                 const promises = this.state.pokemonAbilityData.pokemon.map(async (element, index) => {
                     const response = await PokeApiService.getPokemonByIdOrName(element.pokemon.name)
                     const pokemonData = { response, index }
@@ -133,9 +99,6 @@ export default new Vuex.Store({
         }
     },
     getters: {
-        getPokemonList: state => {
-            return state.pokemonList
-        },
         getPokemonFinalList: state => {
             return state.pokemonFinalList
         },

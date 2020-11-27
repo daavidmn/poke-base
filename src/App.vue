@@ -8,7 +8,6 @@
 
                 <div id="nav">
                     <router-link to="/">{{ fixedText.headerHomeLabel }}</router-link>
-                    <!-- <router-link to="/about">{{ fixedText.headerAboutLabel }}</router-link> -->
                 </div>
             </div>
         </header>

@@ -121,7 +121,7 @@ export default {
     },
     methods: {
         getOfficialSprite() {
-            const spriteUrl = this.getPokemonData.sprites.other['official-artwork']
+            const spriteUrl = this.getPokemonData.sprites.other['official-artwork'] // hyphen do not allow to data bind direcly
             return spriteUrl
         }
     }
